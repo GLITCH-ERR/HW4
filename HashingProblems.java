@@ -1,6 +1,6 @@
 /*
  * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
- *
+ *      Philip Garbis  / COMP 272-002
  * This HashingProblems object contains three methods / problems that you must
  * complete utilize the HashMap object within the Java's Collection Framework Library.
  *
@@ -40,9 +40,16 @@ class HashingProblems {
          * returning 0.0 is NOT correct, as that is not the average value. Whereas
          * returning 0.0/0.0 IS correct (which would return a non-number).
          */
-
-         return 0.0 / 0.0;
-  }
+        // Computes the average of values for keys found in both the HashMap and the array
+        int sum = 0, count = 0;
+        for (int num : array) {
+            if (map.containsKey(num)) { // Check if the key exists in the HashMap
+                sum += map.get(num); // Add its value to the sum
+                count++; // Increment the count of valid keys
+            }
+        }
+        return (count == 0) ? Double.NaN : (double) sum / count; // Return NaN if no common keys
+        }
 
 
     /*
@@ -53,7 +60,7 @@ class HashingProblems {
      */
 
   public ArrayList<String> odd(HashMap<Integer, String> map) {
-    
+    // Returns a list of values whose corresponding keys in the HashMap are odd
       ArrayList<String> result = new ArrayList<>();
 
       /*
@@ -61,7 +68,11 @@ class HashingProblems {
        *
        * Hint: Consider iterating over the HashMap using the keySet method.
        */
-
+      for (int key : map.keySet()) {
+        if (key % 2 != 0) { // Check if the key is odd
+            result.add(map.get(key)); // Add corresponding value to the result list
+        }
+      }
 
       return result;
   }
@@ -105,12 +116,17 @@ class HashingProblems {
    */
 
   public int twoSums(int[] numbers, int k) {
-
+    // Counts the occurrences of k as the difference between two numbers in the array
       /*
        * ADD YOUR CODE HERE
        */
-
-      return -1;
+      HashSet<Integer> set = new HashSet<>(); // Store numbers for fast lookup
+        int count = 0;
+        for (int num : numbers) {
+            if (set.contains(num - k)) count++; // Check if (num - k) exists in the set
+            set.add(num); // Add current number to the set
+        }
+        return count; // Return the correct count of unique pairs
   }
 
 } /* end class HashingProblems */
