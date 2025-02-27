@@ -1,6 +1,6 @@
 /*
  * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
- *      Philip Garbis  / COMP 272-002
+ *      Philip Garbis  / COMP 272-002 
  * This hashMap object represents an over simplification of Java's implementation of HashMap within
  * Java's Collection Framework Library. You are to complete the following methods:
  *  - remove(K)
